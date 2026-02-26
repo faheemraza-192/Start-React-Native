@@ -1,11 +1,22 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Header from '../components/Header';
+import AppButton from '../components/AppButton';
 
-export default function AboutScreen() {
+export default function AboutScreen({ navigation }: any) {
   return (
     <View style={styles.container}>
+      <Header />
+
       <Text style={styles.title}>About Screen</Text>
-      <Text>This is my second screen 🚀</Text>
+      <Text style={styles.text}>
+        This is my second screen 🚀
+      </Text>
+
+      <AppButton
+        title="Go Back"
+        onPress={() => navigation.goBack()}
+      />
     </View>
   );
 }
@@ -13,12 +24,15 @@ export default function AboutScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 16,
   },
   title: {
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: '600',
     marginBottom: 10,
+  },
+  text: {
+    fontSize: 16,
+    marginBottom: 20,
   },
 });
